@@ -51,4 +51,26 @@ class Fields{
     );
   }
 
+  detailTextField({required String hint,required FocusNode focus}){
+    return SizedBox(height: 35,
+      child: TextField(
+        cursorColor: primary,
+        focusNode: focus,
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(
+            enabledBorder:OutlineInputBorder(
+                borderRadius: BorderRadius.circular(6),
+                borderSide: BorderSide(color: g3)
+            ),focusedBorder:OutlineInputBorder(
+            borderRadius: BorderRadius.circular(6),
+            borderSide: BorderSide(color: primary)
+        ),
+            contentPadding: EdgeInsets.symmetric(horizontal: 10),
+            hintText: hint,
+            hintStyle: Style().textStyle(size: 12, w: FontWeight.w500, color: g4),suffixIconConstraints: BoxConstraints(minWidth: 35),
+          suffixIcon: Text("AED",style: Style().textStyle(size: 12, w: FontWeight.w600, color: g7),)
+        ),
+      ),
+    );
+  }
 }

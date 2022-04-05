@@ -112,52 +112,82 @@ class BottomTile extends StatelessWidget {
                               child: Container(height: 3,width: 40,color: g4,),
                             ),),
                             InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
                               child: Container(
                                   width: MediaQuery.of(context).size.width,
                                   child: Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+                                    padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 12),
                                     child: Row(
                                       children: [
-                                        Image.asset("assets/transaction.png",height: 20,),
+                                        Image.asset("assets/transaction.png",height: 18,),
                                         SizedBox(width: 10,),
                                         Text(
                                           "Transactions",
-                                          style: Style().textStyle(size: 15, w: FontWeight.w800, color: black),
+                                          style: Style().textStyle(size: 15, w: FontWeight.w500, color: black),
                                         ),
                                       ],
                                     ),
                                   )),
                             ),
                             InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
                               child: Container(
                                   width: MediaQuery.of(context).size.width,
                                   child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 12.0,
-                                        bottom: 15,
-                                        right: 10,
-                                        left: 15),
-                                    child: Text(
-                                      "Renew Package",
-                                      style: Style().textStyle(size: 15, w: FontWeight.w600, color: g7),
+                                    padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 12),
+                                    child: Row(
+                                      children: [
+                                        Image.asset("assets/users.png",height: 18,),
+                                        SizedBox(width: 10,),
+                                        Text(
+                                          "My account",
+                                          style: Style().textStyle(size: 15, w: FontWeight.w500, color: black),
+                                        ),
+                                      ],
                                     ),
                                   )),
                             ),
                             InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
                               child: Container(
                                   width: MediaQuery.of(context).size.width,
                                   child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 12.0,
-                                        bottom: 22,
-                                        right: 10,
-                                        left: 15),
-                                    child: Text(
-                                      "Share Document",
-                                      style: Style().textStyle(size: 15, w: FontWeight.w600, color: g7),
+                                    padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 12),
+                                    child: Row(
+                                      children: [
+                                        Image.asset("assets/customer-service.png",height: 18,),
+                                        SizedBox(width: 10,),
+                                        Text(
+                                          "Help",
+                                          style: Style().textStyle(size: 15, w: FontWeight.w500, color: black),
+                                        ),
+                                      ],
+                                    ),
+                                  )),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              child: Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 12),
+                                    child: Row(
+                                      children: [
+                                        Image.asset("assets/setting.png",height: 18,),
+                                        SizedBox(width: 10,),
+                                        Text(
+                                          "Settings",
+                                          style: Style().textStyle(size: 15, w: FontWeight.w500, color: black),
+                                        ),
+                                      ],
                                     ),
                                   )),
                             ),

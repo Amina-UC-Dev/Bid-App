@@ -17,7 +17,7 @@ class SideByCategories extends StatelessWidget {
           itemBuilder: (context, index) {
             return Padding(
               padding: EdgeInsets.only(
-                  left: index == 0 ? 20 : 0, top: 7, bottom: 7),
+                  left: index == 0 ? 20 : 2, top: 7, bottom: 7,right: 2),
               child: Container(
                 height: 30,
                 child: MaterialButton(

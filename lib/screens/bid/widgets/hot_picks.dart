@@ -16,7 +16,7 @@ class HotPicks extends StatelessWidget {
     return Container(height: 290,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: 5,
+          itemCount: 8,
           itemBuilder: (context,index){
             return Padding(
               padding:  EdgeInsets.only(left: index == 0 ? 20 : 10),

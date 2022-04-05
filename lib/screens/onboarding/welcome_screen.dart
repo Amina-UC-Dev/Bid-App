@@ -5,6 +5,7 @@ import 'package:bid_app/widgets/common_button.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 class WelcomeScreen extends StatelessWidget {
   WelcomeScreen({Key? key}) : super(key: key);
@@ -27,16 +28,17 @@ class WelcomeScreen extends StatelessWidget {
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SafeArea(
-        child: Container(height: h,
+        child: ScreenTypeLayout.builder(
+            mobile: (BuildContext context) => Container(height: h,
           child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
                 children: [
-                  SizedBox(height: 20,),
+                  SizedBox(height: 10,),
                   Container(
-                    height: w / 2.3,
+                    height: 165,
                     child: Swiper(
-                      viewportFraction: .6,
+                      viewportFraction: .55,
                       index: 0,
                       itemWidth: w / 1.2,
                       containerWidth: w / 1.2,
@@ -61,9 +63,9 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    height: w / 1.9,
+                    height: 170,
                     child: Swiper(
-                      viewportFraction: .5, index: 0,
+                      viewportFraction: .45, index: 0,
                       itemBuilder: (BuildContext context, int index) {
                         return Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -89,7 +91,7 @@ class WelcomeScreen extends StatelessWidget {
                   Text(
                     "Let's get started",
                     style:
-                        Style().textStyle(size: 19, w: FontWeight.w800, color: black),
+                    Style().textStyle(size: 19, w: FontWeight.w800, color: black),
                   ),
                   SizedBox(
                     height: 10,
@@ -98,21 +100,109 @@ class WelcomeScreen extends StatelessWidget {
                     "Open a free account in minutes right from "
                         "your\nphone, and make your money go further.",
                     style:
-                        Style().textStyle(size: 14, w: FontWeight.w400, color: black),
+                    Style().textStyle(size: 14, w: FontWeight.w400, color: black),
                     textAlign: TextAlign.center,
                   ),
                 ],
               ),
               Padding(
-                padding:  EdgeInsets.only(bottom: w/6),
+                padding:  EdgeInsets.only(bottom: 40),
                 child: Container(width: w/1.15,height: 45,
-                  child: CommonButton(title: "Next",onT: (){
-                    PageNavigation().gotoRegister(context);
-                  },)
+                    child: CommonButton(title: "Next",onT: (){
+                      PageNavigation().gotoRegister(context);
+                    },)
                 ),
               )
             ],
           ),
+        ),
+            desktop: (BuildContext context) => Container(height: h,
+              child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    children: [
+                      SizedBox(height: 10,),
+                      Container(
+                        height: 165,
+                        child: Swiper(
+                          viewportFraction: .2,
+                          index: 0,
+                          itemWidth: w / 1.2,
+                          containerWidth: w / 1.2,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                  height: w / 2.1,
+                                  width: w / 1.2,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15)),
+                                  child: Image.asset(
+                                    images1[index],
+                                    fit: BoxFit.cover,
+                                  )),
+                            );
+                          },
+                          itemCount: images1.length,
+                          // pagination: SwiperPagination(),
+                          // control: SwiperControl(),
+                        ),
+                      ),
+                      Container(
+                        height: 170,
+                        child: Swiper(
+                          viewportFraction: .15, index: 0,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                  width: 2 / 2,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15)),
+                                  child: Image.asset(
+                                    images2[index],
+                                    fit: BoxFit.cover,
+                                  )),
+                            );
+                          },
+                          itemCount: images2.length,
+                          // pagination: SwiperPagination(),
+                          // control: SwiperControl(),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Text(
+                        "Let's get started",
+                        style:
+                        Style().textStyle(size: 19, w: FontWeight.w800, color: black),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "Open a free account in minutes right from "
+                            "your\nphone, and make your money go further.",
+                        style:
+                        Style().textStyle(size: 14, w: FontWeight.w400, color: black),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding:  EdgeInsets.only(bottom: 40,left: w/3.5,right: w/3.5),
+                    child: Container(width: w,height: 45,
+                        child: CommonButton(title: "Next",onT: (){
+                          PageNavigation().gotoRegister(context);
+                        },)
+                    ),
+                  )
+                ],
+              ),
+            ),
         ),
       ),
     );

@@ -7,8 +7,21 @@ class BidProvider extends ChangeNotifier {
   int bottomIndex = 0;
   int selInterest = 0;
   int selectedSideBy = 0;
+  int detailRadioIndex = 0;
 
   List<String> selectedInterest = [];
+  FocusNode focus1 = FocusNode();
+  FocusNode focus2 = FocusNode();
+
+  focusNode1(){
+    focus1.requestFocus();
+    notifyListeners();
+  }
+
+  focusNode2(){
+    focus2.requestFocus();
+    notifyListeners();
+  }
 
  List<String> interestedCategories = ["All","Iphone","Laptop","Tablet","Smartwatch"];
  List<String> sideBySeriesCategories = ["Iphone","Samsung","Huawai","Oppo","Oneplus"];
@@ -20,6 +33,11 @@ class BidProvider extends ChangeNotifier {
 
  void changeSideByTab(int val){
    selectedSideBy = val;
+   notifyListeners();
+ }
+
+ void changeDetailRadio(int val){
+   detailRadioIndex = val;
    notifyListeners();
  }
 
